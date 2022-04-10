@@ -158,8 +158,9 @@ class buku {
     public void setNamaBuku(String namaBuku) {
         this.namaBuku.add(namaBuku);
     }
-    public int getIndexBuku(String namaBuku){
-       return this.namaBuku.indexOf(namaBuku);
+
+    public int getIndexBuku(String namaBuku) {
+        return this.namaBuku.indexOf(namaBuku);
     }
 
     public void setStok(int stok, int idBuku) {
@@ -258,10 +259,10 @@ class proses {
                 if (siswa.getStatus(idSiswa) && temp == 1) {
                     siswa.setStatus(false, idSiswa);
                     System.out.println("Silahkan memilih buku untuk dipinjam: \n 1. " + buku.getNamaBuku(0) + "  \n 2. " + buku.getNamaBuku(1) + " \n 3. " + buku.getNamaBuku(2));
-                     pinjam = options.nextInt();
-                    proses.setBuku(buku.getNamaBuku((pinjam-1)));
+                    pinjam = options.nextInt();
+                    proses.setBuku(buku.getNamaBuku((pinjam - 1)));
                     System.out.println("Masukkan jumlah. peminjaman maksimal sebanyak " + (buku.getStok((pinjam - 1)) - 1));
-                     jumlah = options.nextInt();
+                    jumlah = options.nextInt();
                     proses.setBanyak(jumlah);
                     buku.setStok((buku.getStok(pinjam - 1) - jumlah), pinjam - 1);
                     char[] animationChar = new char[]{'|', '/', '-', '\\'};
@@ -285,15 +286,15 @@ class proses {
                     System.out.println("Masukkan nomor antrian pengembalian");
                     Scanner in = new Scanner(System.in);
                     int inputQueueNumber = in.nextInt();
-                    System.out.println("Buku yang dipinjam = " + proses.getbuku((inputQueueNumber-1)) + " Sejumlah: " + proses.getBanyak((inputQueueNumber-1)));
+                    System.out.println("Buku yang dipinjam = " + proses.getbuku((inputQueueNumber - 1)) + " Sejumlah: " + proses.getBanyak((inputQueueNumber - 1)));
                     System.out.println("Buku akan otomatis dikembalikan semua");
                     System.out.println("Siswa bisa kembali untuk meminjam buku");
                     siswa.setStatus(false, idSiswa);
                     System.out.println("Masukkan Nomor buku \n 1. " + buku.getNamaBuku(0) + "  \n 2. " + buku.getNamaBuku(1) + " \n 3. " + buku.getNamaBuku(2));
                     Integer inputNomorBuku = in.nextInt();
-                    buku.setStok((buku.getStok((inputNomorBuku-1)) + proses.getBanyak((inputQueueNumber-1))),(inputNomorBuku-1));
+                    buku.setStok((buku.getStok((inputNomorBuku - 1)) + proses.getBanyak((inputQueueNumber - 1))), (inputNomorBuku - 1));
                     System.out.println("Buku dikembalikan, Terimakasih");
-                    System.out.println("Nama buku = "+buku.getNamaBuku((inputNomorBuku-1)) + " Sisa stok buku = " + buku.getStok((inputNomorBuku-1)));
+                    System.out.println("Nama buku = " + buku.getNamaBuku((inputNomorBuku - 1)) + " Sisa stok buku = " + buku.getStok((inputNomorBuku - 1)));
                 }
             } while (temp != 99);
             char[] animationChar = new char[]{'|', '/', '-', '\\'};
