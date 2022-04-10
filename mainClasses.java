@@ -308,6 +308,7 @@ class proses {
                     e.printStackTrace();
                 }
             }
+            System.out.println("System has paused");
             System.out.println("Exited from system");
 
         } catch (Exception e) {
